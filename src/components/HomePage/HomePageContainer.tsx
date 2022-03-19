@@ -1,12 +1,12 @@
+import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import { wordSelector } from "../../redux/selectors";
 
 import { updateWordAC } from "../../redux/homePageReducer";
 import HomePage from "./HomePage";
-
 
 const HomePageContainer = () => {
   const history = useHistory();
@@ -14,32 +14,32 @@ const HomePageContainer = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const word = useSelector(wordSelector); 
+  const word = useSelector(wordSelector);
 
   const handleSearchClick = () => {
-    setLoading(true);
-    history.push(`/${word}`)
+    if (word) setLoading(true);
+    history.push(`/${word}`);
   };
 
   const onKeyPressHandler = (code: string | number) => {
-        if (code === 13) {
-           handleSearchClick()
-        }
+    if (code === 13) {
+      handleSearchClick();
     }
+  };
 
   const onWordChange = (word: string) => {
-   dispatch(updateWordAC(word))
- }
+    dispatch(updateWordAC(word));
+  };
 
   return (
-      <HomePage
-        onSearchClick={handleSearchClick}
-        onWordChange={onWordChange}
-        onKeyPressHandler={onKeyPressHandler} 
-        loading={loading}
-        word={word}
-      />
+    <HomePage
+      onSearchClick={handleSearchClick}
+      onWordChange={onWordChange}
+      onKeyPressHandler={onKeyPressHandler}
+      loading={loading}
+      word={word}
+    />
   );
 };
 
-export default HomePageContainer;
+export default React.memo(HomePageContainer);

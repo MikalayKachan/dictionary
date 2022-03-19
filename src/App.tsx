@@ -13,9 +13,9 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
-        <Route path="/" exact={true} component={HomePageContainer} />
-        <Route path="/:word"  exact={true} component={ResultPageContainer} />
-        <Route path="/:word/error" exact={true} component={ErrorPage} />
+          <Route path="/" exact={true} component={HomePageContainer} />
+          <Route path="/:word" exact={true} component={ResultPageContainer} />
+          <Route path="/:word/error" exact={true} component={ErrorPage} />
         </Switch>
       </div>
     </BrowserRouter>

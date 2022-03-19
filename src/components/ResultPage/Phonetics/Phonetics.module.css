@@ -1,0 +1,13 @@
+.phonetic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+}
+
+.phoneticWord {
+  font-size: small;
+  font-style: inherit;
+  font-weight: 200;
+  margin-right: 8px;
+}
